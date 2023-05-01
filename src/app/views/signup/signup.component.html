@@ -1,0 +1,23 @@
+<h1>Hello please sign up</h1>
+<form [formGroup]="form" (ngSubmit)="onSignup()">
+  <label for="name">Name</label>
+  <input required type="text" formControlName="name" id="name" />
+  <ng-container *ngIf="form.controls['name'] as nameInput">
+    <p class="errors" *ngIf="nameInput.touched && nameInput.invalid">
+      <span *ngIf="nameInput.errors?.['required']">name is required!</span>
+      <span *ngIf="nameInput.errors?.['nameTaken']">Name already taken</span>
+    </p>
+    <button [disabled]="nameInput.errors?.['nameTaken']">Sign Up</button>
+  </ng-container>
+</form>
+<h1>All ready have an account? Login here!</h1>
+<form [formGroup]="formLogin" (ngSubmit)="login()">
+  <label for="name">Name</label>
+  <input required type="text" formControlName="name" id="name" />
+  <ng-container *ngIf="formLogin.controls['name'] as nameInput">
+    <p class="errors" *ngIf="nameInput.touched && nameInput.invalid">
+      <span *ngIf="nameInput.errors?.['required']">name is required!</span>
+    </p>
+    <button>Login</button>
+  </ng-container>
+</form>

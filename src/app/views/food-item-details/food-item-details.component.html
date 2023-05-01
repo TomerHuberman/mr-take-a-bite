@@ -1,0 +1,31 @@
+<section *ngIf="foodItem$ | async as foodItem" class="food-item-details">
+  <img [src]="foodItem.imgUrl" />
+  <p><b>Name:</b> {{ foodItem.name }}</p>
+  <p><b>Price:</b> {{ foodItem.price }}</p>
+  <section class="actions">
+    <button class="back-btn" (click)="onBack()">Back</button>
+    <button (click)="isModalOpen = true">Order</button>
+  </section>
+  <section class="order-modal" *ngIf="isModalOpen && user && foodItem._id">
+    <h3>Buying: {{ foodItem.name }}</h3>
+    <p>Your balance: {{ user.balance }}</p>
+    <b>Will cost you: {{ foodItem.price }}</b>
+    <b *ngIf="!(foodItem.price < user.balance)">
+      Sorry you don't have enough money
+    </b>
+    <section class="actions">
+      <button
+        [disabled]="foodItem.price > user.balance"
+        (click)="buyItem(foodItem._id, foodItem.name, foodItem.price)"
+      >
+        Confirm
+      </button>
+      <button (click)="isModalOpen = false">Cancel</button>
+    </section>
+  </section>
+  <purchase-list
+    *ngIf="user && purchases.length"
+    title="Your orders of {{ foodItem.name }}:"
+    [purchases]="purchases"
+  ></purchase-list>
+</section>

@@ -1,0 +1,3 @@
+<div class="food-list">
+    <food-preview (remove)="remove.emit($event)" *ngFor="let foodItem of fooditems" [foodItem]="foodItem" ></food-preview>
+</div>

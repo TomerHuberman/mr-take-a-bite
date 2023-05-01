@@ -1,0 +1,20 @@
+.order-list {
+  .card {
+    background-color: #9ca777;
+    padding: 4px;
+    border-radius: 3px;
+    margin-bottom: 4px;
+    box-shadow: inset 4px 3px 8px 0px #daf8758c;
+    h3 {
+      font-weight: 700;
+    }
+    > h4:not(:last-child) {
+      margin-bottom: 4px;
+    }
+    .info {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+    }
+  }
+}

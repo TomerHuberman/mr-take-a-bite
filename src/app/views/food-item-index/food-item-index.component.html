@@ -1,0 +1,10 @@
+<section>
+  <food-item-filter></food-item-filter>
+  <a routerLink="/items/edit">Add</a>
+  <food-list
+    (remove)="onRemoveItemFood($event)"
+    [fooditems]="fooditems$ | async"
+  ></food-list>
+</section>
+
+<router-outlet></router-outlet>

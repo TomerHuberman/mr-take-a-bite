@@ -1,0 +1,13 @@
+<section class="food-item-edit">
+  <button class="close" (click)="onBack()">X</button>
+  <h2>{{ foodItem._id ? "Edit" : "Add" }} Item</h2>
+  <form (ngSubmit)="onSaveFoodItem()">
+    <label for="name">Name</label>
+    <input [(ngModel)]="foodItem.name" type="text" name="name" id="name" />
+
+    <label for="price">Price</label>
+    <input [(ngModel)]="foodItem.price" type="number" name="price" id="price" />
+
+    <button>Save</button>
+  </form>
+</section>

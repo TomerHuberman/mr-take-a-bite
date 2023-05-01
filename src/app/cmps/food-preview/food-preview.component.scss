@@ -1,0 +1,25 @@
+.food-preview {
+  display: grid;
+  width: 200px;
+  min-height: 220px;
+  box-shadow: 0 0 0 1px #9ca777;
+  border-radius: 2px;
+  padding: 5px;
+
+  &:hover .actions {
+    opacity: 1;
+  }
+
+  img {
+    object-fit: cover;
+  }
+
+  .actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5px;
+    align-self: end;
+    opacity: 0;
+    transition: opacity .4s;
+  }
+}

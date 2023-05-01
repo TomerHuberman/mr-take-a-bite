@@ -1,0 +1,10 @@
+<section class="order-list">
+  <h3>{{ title }}</h3>
+  <div class="card" *ngFor="let purchase of purchases">
+    <h4>Name: {{ purchase.itemName }}</h4>
+    <div class="info">
+      <h4>Cost: {{ purchase.cost }}</h4>
+      <h4>At: {{ purchase.at | date : "d/m/yy EEEE" }}</h4>
+    </div>
+  </div>
+</section>

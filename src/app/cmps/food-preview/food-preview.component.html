@@ -1,0 +1,12 @@
+<section class="food-preview">
+  <a routerLink="/item/{{ foodItem._id }}">
+    <img [src]="foodItem.imgUrl" />
+    <section class="data">
+      <p>Name: {{ foodItem.name }}</p>
+    </section>
+  </a>
+  <section class="actions">
+    <button (click)="onRemoveItem()" class="remove-btn">X</button>
+    <a [routerLink]="['/items/edit', foodItem._id]">Edit</a>
+  </section>
+</section>

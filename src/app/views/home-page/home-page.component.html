@@ -1,0 +1,7 @@
+<section className="home">
+  <div *ngIf="user" className="user-info">
+    <h2>Hello {{ user.name }}!</h2>
+    <h3>Balance: {{ user.balance }}</h3>
+  </div>
+  <purchase-list *ngIf="user && purchases.length" title="Your last 3 orders:" [purchases]="purchases"></purchase-list>
+</section>
