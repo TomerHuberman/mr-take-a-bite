@@ -58,9 +58,8 @@ export class UserService {
       at: Date.now(),
     };
     this.user.purchases = [purchase, ...this.user.purchases];
-    this.users = this.users.filter((user) =>
-      user._id === this.user?._id ? this.user : user
-    );
+    const idx = this.users.findIndex((user) => user._id === this.user?._id);
+    this.users.splice(idx, 0, this.user)
     this.storageService.save(ENTITY, this.users);
     sessionStorage.setItem('user', JSON.stringify(this.user));
     this._loggedInUser$.next(this.user);
